@@ -55,7 +55,7 @@ def make_next_index(df):
 # =========================
 # 메인 제어부 (화면 전환용 세션)
 # =========================
-st.title("📘 학생 생활습관 설문 및 DB 시스템")
+st.title("📘 학생 생활습관 설문")
 
 if "menu" not in st.session_state:
     st.session_state.menu = "📝 설문지 입력"
