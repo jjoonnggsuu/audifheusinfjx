@@ -192,40 +192,4 @@ with tab1:
 
 # =========================
 # [탭 2] 설문 결과 및 DB 화면
-# =========================
-with tab2:
-    st.subheader("📊 실시간 누적 데이터베이스")
-    
-    try:
-        df = load_data()
-
-        if df.empty:
-            st.info("아직 데이터베이스에 저장된 데이터가 없습니다.")
-        else:
-            # 최신 등록 데이터 순 정렬
-            if "student_id" in df.columns:
-                df = df.sort_values(by="student_id", ascending=False)
-
-            display_columns = [
-                "student_id", "grade_class", "sleep_hours", "phone_hours", 
-                "breakfast", "commute_minutes", "tired_score", "focus_score", "favorite_subject"
-            ]
-            available_cols = [col for col in display_columns if col in df.columns]
-            df_to_show = df[available_cols]
-
-            # 데이터 테이블 표출
-            st.dataframe(df_to_show, use_container_width=True, height=350)
-            st.success(f"🔥 현재 데이터베이스에 총 {len(df)}개의 설문 데이터가 누적되어 있습니다.")
-
-            # 시각화 통계 그래프
-            st.markdown("---")
-            st.markdown("### 📈 데이터 분석 통계")
-            col1, col2 = st.columns(2)
-
-            with col1:
-                st.markdown("##### 👑 좋아하는 과목 순위")
-                if "favorite_subject" in df.columns:
-                    subject_counts = df["favorite_subject"].value_counts()
-                    st.bar_chart(subject_counts)
-
-            with col2
+#
